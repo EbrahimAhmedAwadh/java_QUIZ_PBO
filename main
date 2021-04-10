@@ -1,0 +1,63 @@
+
+import java.util.Scanner;
+
+public class study {
+
+
+    public static void main(String[] args) {
+
+
+        int [] Stock = new int[100];
+        double [] Price = new double[100];
+        String [] nomor= new String[100];
+        String [] nama= new String [100] ;
+
+
+
+        boolean [] Status= new boolean [100];
+        int Size = -1;
+
+
+
+        try (Scanner in = new Scanner(System.in)) {
+            do{
+                try{
+                    System.out.println("Masukkan jumlah produk yang ingin Anda tambahkan:");
+                    Size=in.nextInt();
+
+                    if(Size < 0) throw new Exception ("nilai yang salah dimasukkan") ;
+
+                }
+                catch(Exception E){
+                    System.out.println("tipe data yang dimasukkan salah");
+                    in.nextLine();
+
+                };
+
+
+            }while(Size < 0);
+            in.nextLine();
+            if(Size == 0){
+                System.out.println("Tidak ada produk yang ditambahkan");
+            }
+            else{
+                for(int i=0; i<Size; i++){
+
+                    System.out.println("Masukan nomor ID:");
+                    nomor[i] = in.nextLine();
+                    System.out.println("Masukan nama produk:");
+                    nama[i] = in.nextLine();
+                    System.out.println("Masukan stock:");
+                    Stock[i] = in.nextInt();
+                    System.out.println("Masukan harga:");
+                    Price[i] = in.nextDouble();
+                    System.out.println("\nMasukan status produk:");
+                    Status[i] = in.nextBoolean();
+                    System.out.println("\nNomor ID:"+nomor[i]+"\nStock:"+Stock[i]+"\nHarga:"+Price[i]+"\nStatus:"+Status[i]);
+
+                }
+                in.close();
+            }
+        }
+    }
+}
